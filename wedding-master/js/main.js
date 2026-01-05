@@ -22,7 +22,7 @@
 	var offcanvasMenu = function() {
 
 		$('#page').prepend('<div id="fh5co-offcanvas" />');
-		$('#page').prepend('<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle fh5co-nav-white"><i></i></a>');
+		// $('#page').prepend('<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle fh5co-nav-white"><i></i></a>');
 		var clone1 = $('.menu-1 > ul').clone();
 		$('#fh5co-offcanvas').append(clone1);
 		var clone2 = $('.menu-2 > ul').clone();
@@ -164,6 +164,7 @@
 
 			$('html, body').animate({
 				scrollTop: $('html').offset().top
+				// scrollTop: 850
 			}, 500, 'easeInOutExpo');
 			
 			return false;
@@ -172,7 +173,7 @@
 		$(window).scroll(function(){
 
 			var $win = $(window);
-			if ($win.scrollTop() > 200) {
+			if ($win.scrollTop() > 0) {
 				$('.js-top').addClass('active');
 			} else {
 				$('.js-top').removeClass('active');

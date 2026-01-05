@@ -41,12 +41,20 @@
 
 		<!-- Modernizr JS -->
 		<script>
-			if ('scrollRestoration' in history) {
-				history.scrollRestoration = 'manual';
+			// Check if the page was accessed by a reload or simply navigated to
+			function checkPageLoadType() {
+				const navEntries = performance.getEntriesByType("navigation");
+				if (navEntries.length > 0) {
+					const navType = navEntries[0].type;
+					// If the type is 'reload', redirect to the first page
+					if (navType === 'reload') {
+						window.location.replace("cover.html");
+					}
+				}
 			}
-			window.onload = function () {
-				window.scrollTo(0, 0);
-			};
+
+			// Run the function when the page loads
+			window.onload = checkPageLoadType;
 		</script>
 		<script src="js/modernizr-2.6.2.min.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -516,7 +524,7 @@
 			</footer>
 		</div>
 		<audio id="audio" src="https://www.dropbox.com/scl/fi/ym42ijb9thngccusyh84r/LESTARI-Dru-Wendra-Wedhatama-Vitto-Fernanda.mp3?rlkey=4qzqq8jggdixc7gtac22ou8vv&amp;st=1ytxfnsb&amp;raw=1" autoplay="" loop=""></audio>
-		<div id="music" style="position:fixed;bottom:75px;right:20px;z-index:100;text-align:center;display:none;">
+		<div id="music" style="position:fixed;bottom:75px;right:20px;z-index:100;text-align:center;">
 			<div style="text-align: center;">    
 				<div id="btn_play" style="display: block;">
 					<button type="button" class="button loading_arrow" onclick="pause()">
@@ -560,16 +568,6 @@
 		<script src="js/main.js"></script>
 	</body>
 	<script>
-		function btn_open() {
-			// window.scrollTo(0, 850);
-			document.getElementById('music').style.display ="block";
-			document.getElementById('btn_stop').style.display ="none";
-			document.getElementById('btn_play').style.display ="block";
-			// document.getElementById('headpage').style.display ='none';
-			// document.getElementById('page').style.display ='block';
-			let sound = document.getElementById('audio');
-			sound.play();
-		}
 		function playing() {
 			document.getElementById('btn_stop').style.display ="none";
 			document.getElementById('btn_play').style.display ="block";
@@ -593,23 +591,5 @@
 			seconds: d.getSeconds() + 1,
 			enableUtc: false
 		});
-
-		// const targetDate = new Date("Oct 24, 2026 13:00:00").getTime();
-		// const currentDate = new Date(new Date().getTime());
-		// const countdown = targetDate - currentDate
-
-		// const days = Math.floor(countdown / (1000 * 60 * 60 * 24));
-		// const hours = Math.floor((countdown % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-		// const minutes = Math.floor((countdown % (1000 * 60 * 60)) / (1000 * 60));
-		// const seconds = Math.floor((countdown % (1000 * 60)) / 1000);
-
-		// var d = new Date(new Date("Dec 18, 2025 14:45:00").getTime());
-
-		// $('#simply-countdown-losange').simplyCountdown({
-		// 	year: d.getFullYear(),
-		// 	month: d.getMonth() + 1,
-		// 	day: d.getDate(),
-		// 	enableUtc: false
-		// });
 	</script>
 </html>
