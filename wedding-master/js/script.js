@@ -6,6 +6,37 @@
 //     // window.location.href = "cover";
 // };
 
+document.addEventListener('keydown', function(e) {
+  // Block F12 (keyCode 123)
+//   if (e.key === 'F12') {
+//     e.preventDefault();
+//   }
+  // Block Ctrl+Shift+I (keyCode 73)
+  if (e.ctrlKey && e.shiftKey && e.key === 'i') {
+    e.preventDefault();
+  }
+  // Block Ctrl+Shift+I (keyCode 73)
+  if (e.ctrlKey && e.shiftKey && e.key === 'I') {
+    e.preventDefault();
+  }
+  // Block Ctrl+Shift+J (keyCode 74)
+   if (e.ctrlKey && e.shiftKey && e.key === 'j') {
+    e.preventDefault();
+  }
+  // Block Ctrl+Shift+J (keyCode 74)
+   if (e.ctrlKey && e.shiftKey && e.key === 'J') {
+    e.preventDefault();
+  }
+  // Block Ctrl+U (keyCode 85)
+  if (e.ctrlKey && e.key === 'u') {
+    e.preventDefault();
+  }
+  // Block Ctrl+U (keyCode 85)
+  if (e.ctrlKey && e.key === 'U') {
+    e.preventDefault();
+  }
+}, false);
+
 // Check if the page was accessed by a reload or simply navigated to
 function checkPageLoadType() {
     const navEntries = performance.getEntriesByType("navigation");
