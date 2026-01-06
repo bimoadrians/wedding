@@ -1541,7 +1541,7 @@ form label {
 .gototop {
   position: fixed;
   bottom: 20px;
-  right: 20px;
+  right: 5px;
   z-index: 999;
   opacity: 0;
   visibility: hidden;

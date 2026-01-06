@@ -2,6 +2,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  		<link rel="icon" href="images\invitation.gif">
 		<title>Wedding Eveline & Bimo</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
@@ -40,22 +41,6 @@
 		<link rel="stylesheet" href="css/style.css">
 
 		<!-- Modernizr JS -->
-		<script>
-			// Check if the page was accessed by a reload or simply navigated to
-			function checkPageLoadType() {
-				const navEntries = performance.getEntriesByType("navigation");
-				if (navEntries.length > 0) {
-					const navType = navEntries[0].type;
-					// If the type is 'reload', redirect to the first page
-					if (navType === 'reload') {
-						window.location.replace("cover.html");
-					}
-				}
-			}
-
-			// Run the function when the page loads
-			window.onload = checkPageLoadType;
-		</script>
 		<script src="js/modernizr-2.6.2.min.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 		<!-- FOR IE9 below -->
@@ -524,23 +509,19 @@
 			</footer>
 		</div>
 		<audio id="audio" src="https://www.dropbox.com/scl/fi/ym42ijb9thngccusyh84r/LESTARI-Dru-Wendra-Wedhatama-Vitto-Fernanda.mp3?rlkey=4qzqq8jggdixc7gtac22ou8vv&amp;st=1ytxfnsb&amp;raw=1" autoplay="" loop=""></audio>
-		<div id="music" style="position:fixed;bottom:75px;right:20px;z-index:100;text-align:center;">
-			<div style="text-align: center;">    
-				<div id="btn_play" style="display: block;">
-					<button type="button" class="button loading_arrow" onclick="pause()">
-						<img src="images\pause.png" style="width: 35px;margin-top: 0px"> 
-					</button>
-				</div>
-				<div id="btn_stop" style="display: none;">
-					<button type="button" class="button" onclick="playing()">
-						<img src="images\play.png" style="width: 35px;margin-top: 0px"> 
-					</button>
-				</div>
-			</div>
+		<div id="music" style="position:fixed;bottom:85px;right:5px;z-index:100;text-align:center;">
+			<button id="btn_play" style="display: block; border: none; background-color: transparent;" type="button" class="button loading_arrow" onclick="pause()">
+				<img src="images\pause.gif" style="width: 65px;margin-top: 0px">
+			</button>
+			<button id="btn_stop" style="display: none; border: none; background-color: transparent;" type="button" class="button" onclick="playing()">
+				<img src="images\play.gif" style="width: 65px;margin-top: 0px">
+			</button>
 		</div>
 
 		<div class="gototop js-top">
-			<a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
+			<button type="button" class="js-gotop" style="border: none; background-color: transparent;">
+				<img src="images\arrowup.gif" style="width: 65px;margin-top: 0px">
+			</button>
 		</div>
 		
 		<!-- jQuery -->
@@ -566,30 +547,6 @@
 		<script src="js/simplyCountdown.js"></script>
 		<!-- Main -->
 		<script src="js/main.js"></script>
+		<script src="js/script.js"></script>
 	</body>
-	<script>
-		function playing() {
-			document.getElementById('btn_stop').style.display ="none";
-			document.getElementById('btn_play').style.display ="block";
-			let sound = document.getElementById('audio');
-			sound.play();
-		}
-		function pause() {
-			document.getElementById('btn_stop').style.display ="block";
-			document.getElementById('btn_play').style.display ="none";
-			let sound = document.getElementById('audio');
-			sound.pause();
-		}
-		var d = new Date(new Date("Oct 25, 2026 13:00:00").getTime());
-
-		simplyCountdown('.simply-countdown-one', {
-			year: d.getFullYear(),
-			month: d.getMonth() + 1,
-			day: d.getDate(),
-			hours: d.getHours(),
-			minutes: d.getMinutes(),
-			seconds: d.getSeconds() + 1,
-			enableUtc: false
-		});
-	</script>
 </html>
