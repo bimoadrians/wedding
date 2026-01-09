@@ -8,9 +8,17 @@
 
 document.addEventListener('keydown', function(e) {
   // Block F12 (keyCode 123)
-//   if (e.key === 'F12') {
-//     e.preventDefault();
-//   }
+  // if (e.key === 'F12') {
+  //   e.preventDefault();
+  // }
+  // Block Command+Option+I (keyCode 73)
+  if (e.metaKey && e.altKey && e.key === 'i') {
+    e.preventDefault();
+  }
+  // Block Command+Option+I (keyCode 73)
+  if (e.metaKey && e.altKey && e.key === 'I') {
+    e.preventDefault();
+  }
   // Block Ctrl+Shift+I (keyCode 73)
   if (e.ctrlKey && e.shiftKey && e.key === 'i') {
     e.preventDefault();
