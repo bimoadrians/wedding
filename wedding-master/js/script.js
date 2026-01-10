@@ -52,7 +52,7 @@ function checkPageLoadType() {
         const navType = navEntries[0].type;
         // If the type is 'reload', redirect to the first page
         if (navType === 'reload') {
-            window.location.replace("cover.html");
+            // window.location.replace("cover.html");
         }
     }
 }
