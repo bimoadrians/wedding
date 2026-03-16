@@ -52,13 +52,53 @@ function checkPageLoadType() {
         const navType = navEntries[0].type;
         // If the type is 'reload', redirect to the first page
         if (navType === 'reload') {
-            // window.location.replace("cover.html");
+            setCookie("id_login", '', 7);
+            window.location.replace("cover.html");
         }
     }
 }
 
 // Run the function when the page loads
 window.onload = checkPageLoadType;
+
+// Set and Get Cookies
+
+function formatNumber(number){
+  return new Intl.NumberFormat().format(number);
+}// default function
+
+function setCookie(cname, cvalue, exdays) {
+  const d = new Date();
+  d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+  let expires = "expires="+d.toUTCString();
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+function getCookie(cname) {
+  //console.log(document.cookie);
+  let name = cname + "=";
+  let ca = document.cookie.split(';');
+  for(let i = 0; i < ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+
+$('#btn-login').click(function(e){
+  e.preventDefault;
+
+  let login = $("#id_login").html();
+
+  setCookie("id_login", login, 30);
+
+  location.replace("main.html");
+});
 
 function playing() {
     document.getElementById('btn_stop').style.display ="none";
@@ -72,7 +112,7 @@ function pause() {
     let sound = document.getElementById('audio');
     sound.pause();
 }
-var d = new Date(new Date("Oct 25, 2026 13:00:00").getTime());
+var d = new Date(new Date("Oct 18, 2026 13:00:00").getTime());
 
 simplyCountdown('.simply-countdown-one', {
     year: d.getFullYear(),
